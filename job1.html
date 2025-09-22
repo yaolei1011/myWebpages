@@ -3,182 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>绿行记 - 自然户外主题页面</title>
+    <title>自然户外装备馆</title>
     <style>
         /* 基础重置 */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "微软雅黑", sans-serif; line-height: 1.5; }
-        a { text-decoration: none; color: #333; }
-        ul { list-style: none; }
-
-        /* 页面容器（居中布局） */
-        .container { 
-            width: 1200px; 
-            margin: 0 auto; 
-            padding: 15px; 
-            border: 1px solid #eee;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* 顶部欢迎栏 */
-        .top-bar { 
-            text-align: right; 
-            font-size: 14px; 
-            color: #666; 
-            margin-bottom: 10px;
+        /* 整体风格 */
+        body {
+            font-family: "微软雅黑", sans-serif;
+            background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* 标语与Logo区（核心样式） */
-        .banner { 
-            display: flex; 
-            align-items: center; 
+        /* 顶部导航栏 */
+        header {
+            background: #a5d6a7;
+            padding: 15px 25px;
+            display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 15px;
+            align-items: center;
+            border-bottom: 3px solid #2e7d32;
         }
-        .logo-group { text-align: center; }
-        .logo-brand { 
-            font-size: 18px; 
-            font-weight: bold; 
-            margin-bottom: 2px;
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .logo-slogan { font-size: 14px; color: #666; }
-        .main-slogan { 
-            flex: 1; 
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        .logo-en {
+            font-size: 14px;
+            color: #2e7d32;
+        }
+
+        /* 核心标题（森林绿+宋体加粗） */
+        .header-title {
+            font-family: 宋体;
+            font-weight: 700;
+            font-size: 28px;
+            color: #2e7d32;
+            flex: 1;
             text-align: center;
-            font-family: SimSun, 宋体; /* 宋体 */
-            font-weight: bold; /* 加粗 */
-            font-size: 28px; 
-            color: #006400; /* 森林绿（更贴近自然的深绿色） */
-        }
-        .banner-icon { font-size: 24px; color: #666; }
-
-        /* 主导航栏 */
-        .main-nav { 
-            text-align: right; 
-            margin-bottom: 20px;
-        }
-        .main-nav a { 
-            margin: 0 15px; 
-            font-size: 16px; 
-            color: #333;
         }
 
-        /* 内容布局（侧边栏+主内容） */
-        .content-wrapper { 
-            display: flex; 
-            gap: 30px; /* 侧边栏与主内容间距 */
-        }
-
-        /* 左侧导航栏 */
-        .sidebar { 
-            width: 180px; 
-            border-right: 1px solid #eee;
-            padding-right: 20px;
-        }
-        .sidebar li { 
-            margin: 18px 0; 
+        .header-links a {
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 8px;
             font-size: 16px;
         }
 
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 中间导航栏 */
+        nav {
+            background: #c8e6c9;
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 1px solid #2e7d32;
+        }
+
+        nav a {
+            font-size: 18px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #81c784;
+            color: #fff;
+        }
+
+        /* 主体容器（左右布局） */
+        .container {
+            display: flex;
+            gap: 25px;
+            padding: 25px;
+        }
+
+        /* 左侧导航栏 */
+        aside {
+            width: 220px;
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #2e7d32;
+        }
+
+        .side-link {
+            display: block;
+            font-size: 18px;
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 18px 0;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .side-link:hover {
+            background: #81c784;
+            color: #fff;
+        }
+
         /* 主内容区 */
-        .main-content { flex: 1; }
+        main {
+            flex: 1;
+        }
 
         /* 产品图占位 */
-        .product-placeholder { 
-            width: 100%; 
-            height: 260px; 
-            border: 1px solid #ccc;
+        .product-img {
+            border: 2px solid #2e7d32;
+            height: 260px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: #666;
-            margin-bottom: 30px;
+            align-items: center;
+            font-size: 34px;
+            color: #2e7d32;
+            background: #fff;
+            margin-bottom: 25px;
+            border-radius: 8px;
         }
 
-        /* 分类按钮网格 */
-        .category-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3列布局 */
-            gap: 25px; /* 按钮间距 */
-        }
-        .category-item { 
-            border: 1px solid #ccc;
-            height: 120px;
+        /* 分类卡片布局 */
+        .categories {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: space-between;
+        }
+
+        .category {
+            width: calc(33.333% - 17px);
+            height: 130px;
+            border: 2px solid #2e7d32;
+            display: flex;
             justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s;
             cursor: pointer;
         }
-        .category-tag { 
-            padding: 8px 25px;
-            border: 1px solid #333;
-            border-radius: 20px; /* 椭圆效果 */
-            font-size: 18px;
-            background-color: #fff;
+
+        .category:hover {
+            transform: scale(1.05);
+        }
+
+        /* 椭圆标签样式 */
+        .tag {
+            border: 2px solid #2e7d32;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 22px;
+            color: #2e7d32;
+            background: #fff;
         }
     </style>
 </head>
 <body>
+    <!-- 顶部区域 -->
+    <header>
+        <div class="logo">
+            <span class="logo-text">绿行记</span>
+            <span class="logo-en">See it</span>
+        </div>
+        <div class="header-title">把自然穿在身上 把足迹留在山野</div>
+        <div class="header-links">
+            <a href=" ">欢迎走进大自然</a > | 
+            <a href="#">登记/注册</a > | 
+            <a href="#">安全中心</a > | 
+            <a href="#">帮助中心</a >
+        </div>
+    </header>
+
+    <!-- 中间导航 -->
+    <nav>
+        <a href="#">我的设备</a >
+        <a href="#">配套指南</a >
+        <a href="#">购买记录</a >
+        <a href="#">会员保障</a >
+        <a href="#">其它</a >
+    </nav>
+
+    <!-- 主体内容 -->
     <div class="container">
-        <!-- 顶部欢迎栏 -->
-        <div class="top-bar">
-            欢迎走进大自然 | 登记/注册 短中心 帮助中心
-        </div>
+        <!-- 左侧导航 -->
+        <aside>
+            <a href="#" class="side-link">首页</a >
+            <a href="#" class="side-link">品牌活动</a >
+            <a href="#" class="side-link">山地课堂</a >
+            <a href="#" class="side-link">户外向导</a >
+            <a href="#" class="side-link">品牌故事</a >
+        </aside>
 
-        <!-- 核心标语区 -->
-        <div class="banner">
-            <div class="logo-group">
-                <div class="logo-brand">绿行记</div>
-                <div class="logo-slogan">See it</div>
-            </div>
+        <!-- 主内容 -->
+        <main>
+            <div class="product-img">产品图</div>
             
-            <div class="main-slogan">
-                把自然穿在身上 把足迹留在山野
-            </div>
-            
-            <div class="banner-icon">ℯ</div>
-        </div>
-
-        <!-- 主导航 -->
-        <nav class="main-nav">
-            <a href=" ">我的装备</a >
-            <a href="#">配套指南</a >
-            <a href="#">购买记录</a >
-            <a href="#">会员保障</a >
-            <a href="#">其它</a >
-        </nav>
-
-        <!-- 内容主体 -->
-        <div class="content-wrapper">
-            <!-- 左侧导航 -->
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="#">首页</a ></li>
-                    <li><a href="#">品牌活动</a ></li>
-                    <li><a href="#">山地课堂</a ></li>
-                    <li><a href="#">户外向导</a ></li>
-                    <li><a href="#">品牌故事</a ></li>
-                </ul>
-            </aside>
-
-            <!-- 主内容 -->
-            <div class="main-content">
-                <!-- 产品图占位 -->
-                <div class="product-placeholder">产品图</div>
-
-                <!-- 分类按钮 -->
-                <div class="category-grid">
-                    <div class="category-item"><span class="category-tag">户外</span></div>
-                    <div class="category-item"><span class="category-tag">男鞋</span></div>
-                    <div class="category-item"><span class="category-tag">女鞋</span></div>
-                    <div class="category-item"><span class="category-tag">运动</span></div>
-                    <div class="category-item"><span class="category-tag">骑行</span></div>
-                    <div class="category-item"><span class="category-tag">装备配置</span></div>
+            <div class="categories">
+                <div class="category">
+                    <span class="tag">户外</span>
+                </div>
+                <div class="category">
+                    <span class="tag">男鞋</span>
+                </div>
+                <div class="category">
+                    <span class="tag">女鞋</span>
+                </div>
+                <div class="category">
+                    <span class="tag">运动</span>
+                </div>
+                <div class="category">
+                    <span class="tag">瑜伽</span>
+                </div>
+                <div class="category">
+                    <span class="tag">装备配置</span>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>
