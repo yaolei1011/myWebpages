@@ -20,14 +20,37 @@
             line-height: 1.6;
         }
 
-        /* 顶部导航栏 */
+        /* 顶部区域 - 改为上下布局 */
+        .top-bar {
+            background: #a5d6a7;
+            border-bottom: 3px solid #2e7d32;
+        }
+        
+        /* 顶部右侧链接区域 - 移到最上方 */
+        .top-links {
+            text-align: right;
+            padding: 8px 25px;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.2);
+        }
+        
+        .top-links a {
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 16px;
+        }
+        
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 顶部主区域 */
         header {
             background: #a5d6a7;
             padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid #2e7d32;
         }
 
         .logo {
@@ -58,22 +81,11 @@
             text-align: center;
         }
 
-        .header-links a {
-            color: #2e7d32;
-            text-decoration: none;
-            margin: 0 8px;
-            font-size: 16px;
-        }
-
-        .header-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* 中间导航栏 */
+        /* 中间导航栏 - 靠右显示 */
         nav {
             background: #c8e6c9;
-            padding: 12px 0;
-            text-align: center;
+            padding: 12px 25px;
+            text-align: right;
             border-bottom: 1px solid #2e7d32;
         }
 
@@ -180,22 +192,27 @@
     </style>
 </head>
 <body>
-    <!-- 顶部区域 -->
-    <header>
-        <div class="logo">
-            <span class="logo-text">绿行记</span>
-            <span class="logo-en">See it</span>
-        </div>
-        <div class="header-title">把自然穿在身上 把足迹留在山野</div>
-        <div class="header-links">
+    <!-- 顶部区域 - 重构为上下布局 -->
+    <div class="top-bar">
+        <!-- 顶部右侧链接区域 - 现在位于最上方 -->
+        <div class="top-links">
             <a href=" ">欢迎走进大自然</a > | 
             <a href="#">登记/注册</a > | 
             <a href="#">安全中心</a > | 
             <a href="#">帮助中心</a >
         </div>
-    </header>
+        
+        <!-- 顶部主区域 -->
+        <header>
+            <div class="logo">
+                <span class="logo-text">绿行记</span>
+                <span class="logo-en">See it</span>
+            </div>
+            <div class="header-title">把自然穿在身上 把足迹留在山野</div>
+        </header>
+    </div>
 
-    <!-- 中间导航 -->
+    <!-- 中间导航（靠右显示） -->
     <nav>
         <a href="#">我的设备</a >
         <a href="#">配套指南</a >
