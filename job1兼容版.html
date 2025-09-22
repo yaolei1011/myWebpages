@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>绿行记</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 全局样式优化 */
+        body {
+            font-family: "微软雅黑", sans-serif;
+            background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            font-size: clamp(14px, 2.5vw, 16px); /* 响应式字体 */
+        }
+
+        /* 顶部区域优化 */
+        .top-bar {
+            background: #a5d6a7;
+            border-bottom: 3px solid #2e7d32;
+            padding: 8px 10px;
+        }
+
+        .top-links {
+            text-align: right;
+            border-bottom: 1px solid rgba(46, 125, 50, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .top-links a {
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 14px;
+        }
+
+        header {
+            padding: 10px;
+            flex-direction: column; /* 移动端垂直排列 */
+        }
+
+        .logo {
+            margin-bottom: 15px;
+        }
+
+        .header-title {
+            font-size: clamp(20px, 5vw, 28px); /* 标题响应式 */
+            text-align: center;
+            flex: none;
+            margin: 0 auto;
+        }
+
+        /* 中间导航优化 */
+        nav {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 3px solid #2e7d32;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 8px 16px; /* 增大触摸区域 */
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        /* 主体容器优化 */
+        .container {
+            flex-direction: column; /* 移动端垂直排列 */
+            padding: 10px;
+            gap: 15px;
+        }
+
+        aside {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .side-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+
+        main {
+            flex: none;
+        }
+
+        .product-img {
+            height: 180px;
+            font-size: 24px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .categories {
+            gap: 15px;
+        }
+
+        .category {
+            width: calc(50% - 7.5px); /* 移动端两列布局 */
+            height: 100px;
+            font-size: 14px;
+            transition: transform 0.3s;
+        }
+
+        .tag {
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+
+        /* 响应式断点 */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+
+            aside {
+                width: 220px;
+            }
+
+            .categories {
+                gap: 25px;
+            }
+
+            .category {
+                width: calc(33.333% - 17px);
+                height: 130px;
+            }
+
+            .product-img {
+                height: 260px;
+                font-size: 34px;
+            }
+        }
+
+        /* 触摸区域优化 */
+        @media (max-width: 768px) {
+            nav a {
+                padding: 12px 24px;
+                margin: 5px;
+            }
+
+            .side-link {
+                padding: 15px 20px;
+            }
+
+            .category {
+                min-height: 120px;
+            }
+        }
+
+        /* 响应式图片 */
+        .product-img {
+            background-image: url('product-placeholder.jpg');
+        }
+
+        @media (min-resolution: 2dppx) {
+            .product-img {
+                background-image: url('product-placeholder@2x.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部区域 -->
+    <div class="top-bar">
+        <div class="top-links">
+            <a href=" ">欢迎走进大自然</a> | 
+            <a href="#">登记/注册</a> | 
+            <a href="#">安全中心</a> | 
+            <a href="#">帮助中心</a>
+        </div>
+        
+        <header>
+            <div class="logo">
+                <span class="logo-text">绿行记</span>
+                <span class="logo-en">See it</span>
+            </div>
+            <div class="header-title">把自然穿在身上 把足迹留在山野</div>
+        </header>
+    </div>
+
+    <!-- 中间导航 -->
+    <nav>
+        <a href="#">我的设备</a>
+        <a href="#">配套指南</a>
+        <a href="#">购买记录</a>
+        <a href="#">会员保障</a>
+        <a href="#">其它</a>
+    </nav>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- 左侧导航 -->
+        <aside>
+            <a href="#" class="side-link">首页</a>
+            <a href="#" class="side-link">品牌活动</a>
+            <a href="#" class="side-link">山地课堂</a>
+            <a href="#" class="side-link">户外向导</a>
+            <a href="#" class="side-link">品牌故事</a>
+        </aside>
+
+        <!-- 主内容 -->
+        <main>
+            <div class="product-img"></div>
+            
+            <div class="categories">
+                <div class="category">
+                    <span class="tag">户外</span>
+                </div>
+                <div class="category">
+                    <span class="tag">男鞋</span>
+                </div>
+                <div class="category">
+                    <span class="tag">女鞋</span>
+                </div>
+                <div class="category">
+                    <span class="tag">运动</span>
+                </div>
+                <div class="category">
+                    <span class="tag">瑜伽</span>
+                </div>
+                <div class="category">
+                    <span class="tag">装备配置</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
